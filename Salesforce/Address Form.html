@@ -1,0 +1,142 @@
+<apex:page standardController="Contact" id="addressForm" standardStylesheets="false" doctype="html-5.0" >
+    <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://api.autoaddress.ie/2.0/control/js/jquery.autoaddress.min.js"></script>
+    <link href="https://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet" type="text/css" />        
+</head>
+<body>                   
+    <div id="myControl"></div>
+    <div>            
+        <div class="form-group" >
+            <label  for="address1" >Address Line 1:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="address1" type="text" />
+            </div>                
+        </div>
+        <div class="form-group form-group-sm" >
+            <label class="col-sm-3 control-label" for="address2" >Address Line 2:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="address2" type="text" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" >
+            <label class="col-sm-3 control-label" for="address3" >Address Line 3:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="address3" type="text" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" >
+            <label class="col-sm-3 control-label" for="address4" >Town:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="address4" type="text" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" >
+            <label class="col-sm-3 control-label" for="address5" >County:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="address5" type="text" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" >
+            <label class="col-sm-3 control-label" for="postcode" id="postcodeLabel" >Eircode:</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="postcode" type="text" />
+            </div>
+        </div>
+    </div>
+                                                        
+    <script type="text/javascript">
+        $ = jQuery.noConflict();
+        $(function(){
+            $("#myControl").html("");
+            $("#myControl").AutoAddress({
+                key : " 25CB8553-DAA3-48E8-8598-BABD630CF630",
+                vanityMode : true,
+                addressProfile: "SalesforceDemoDefault",
+                addressFoundLabel: "Postcode Found, address populated below",
+                onAddressFound: function (data) {
+                    var address = data.reformattedAddress + data.postcode;
+                    $("#address1").val(data.reformattedAddress[0]);
+                    $("#address2").val(data.reformattedAddress[1]);
+                    $("#address3").val(data.reformattedAddress[2]);
+                    $("#address4").val(data.reformattedAddress[3]);
+                    $("#postcode").val(data.reformattedAddress[4]);
+                }
+            });
+        });  
+    </script> 
+        
+    <style type="text/css" media="all">.form-control{
+    background: #fbfcfc;
+    border: solid 1px #dde1e1;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+    padding: 3px 12px;
+    }
+    
+    .panel {
+    position: relative;
+    margin-bottom: 27px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    }
+    
+    .form-horizontal .form-control{
+    border: solid 1px #dde1e1;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 8px;
+    width: 100%;
+    display: inline-block;
+    padding: 3px 12px;
+        font-size:14px;
+    }
+    
+    .form-horizontal .control-label{
+    font-size: 16px;
+    font-weight: 400;
+        text-align:left;
+    }
+    
+    .form-group {
+        margin-bottom: 5px; 
+    }
+    
+    .form-group div:last-child {
+        padding: 0;
+    }
+    
+    .col-sm-3 {
+        width: 200px; 
+        text-align: left;
+    }
+    
+    .autoaddress-control {
+        text-align: left; 
+    }
+    
+    .result {
+        margin-top: 10px;
+        max-width: 650px;
+        left: 50%;
+        margin-left: -325px;
+        padding: 0;
+        width: 94%;
+                    }
+                                
+                    
+    @media screen and (max-width: 725px) {
+        .result {
+            left: 0;
+            margin: auto;
+        }
+        .form-group div:last-child {
+            padding: 0 15px;
+        }
+    }</style>
+</body>
+</apex:page>
