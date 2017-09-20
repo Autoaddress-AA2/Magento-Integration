@@ -1,0 +1,64 @@
+.aa-address1-inline-padding {
+    padding-left: 23px !important;
+    padding-right: 6px !important;
+}
+
+.autoaddress-control, .autoaddress-control .autoaddress-options-msg.info {
+    font-size: 12px;
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion {
+    padding: 3px;
+}
+
+.autoaddress-control .autoaddress-autocomplete, .autoaddress-control .hover {
+    width: 400px;
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li a {
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+.autoaddress-control .autoaddress-options-msg.info {
+    padding: 5px 15px 5px;
+    margin: 0;
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list {
+    margin-top: 7px;
+}
+
+.autoaddress-control .ma-arrow, .autoaddress-control .autoaddress-options-list li a:hover .ma-arrow, .autoaddress-options-list li a:focus.ma-arrow {
+    margin-left: 3px;
+    background-size: 60% auto;
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li a, .autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li a.selected {
+    background-position: 6px 5px;
+    background-size: 13px;
+    padding: 3px 10px 2px 24px;
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li+li a, .autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li+li a.selected {
+    background-size: 14px;
+    background-position: 8px 6px;
+    padding: 3px 10px 2px 27px;
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li > a em {
+    font-size: 12px;
+}
+
+.autoaddress-control .ma-list, .autoaddress-control .autoaddress-options-list li a:hover .ma-list, .autoaddress-options-list li a:focus .ma-list {
+    margin-left: 3px;
+    background-size: 65% auto;
+}
+
+.autoaddress-control input:focus {
+    outline-width: 0;
+}
+
+#address1_composite_compositionLinkControl_flyoutLoadingArea {
+    overflow: initial;
+}
