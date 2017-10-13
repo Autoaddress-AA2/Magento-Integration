@@ -1,0 +1,38 @@
+<link href="https://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://api.autoaddress.ie/2.0/control/js/jquery.autoaddress.min.js"></script>
+
+
+<div id="AAControl">
+    <div class="autoaddress-control">
+        <input placeholder="Enter Full Address or Postcode" type="text" spellcheck="false" class="autoaddress-text-box" autocomplete="off" />
+        <button tabindex="-1" class="autoaddress-button">Search</button>
+        <div class="autoaddress-autocomplete" style="position: absolute; display: none; z-index: 9999;"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#AAControl").html("");
+        $("#AAControl").AutoAddress({
+            key : "<Your Key Here>",
+            vanityMode : true,
+            addressProfile: "Wordpress-Gravity Forms",
+            addressFoundLabel: "Postcode Found, address populated below",                
+            onAddressFound: function (data) {
+                var address = data.reformattedAddress;
+
+                $('#input_1_1_1').val(data.reformattedAddress[0]);
+                $('#input_1_1_2').val(data.reformattedAddress[1]);
+                if(data.reformattedAddress[0] == null && data.reformattedAddress[1] == null){
+                    $('#input_1_1_1').val(data.reformattedAddress[2]);
+                }
+                else{
+                    $('#input_1_1_3').val(data.reformattedAddress[2]); 
+                }                         
+                $('#input_1_1_4').val(data.reformattedAddress[3]);
+                $('#input_1_1_5').val(data.postcode);                                                           
+            }
+        });
+    });
+</script>
