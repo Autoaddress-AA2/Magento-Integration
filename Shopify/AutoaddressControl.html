@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    $.noConflict();
+    jQuery( document ).ready(function( $ ){
+        $("#myControl").html("");
+        $("#myControl").AutoAddress({
+            key : "<Your Key Here>",
+            vanityMode : true,
+            addressProfile: "Shopify Demo",
+            addressFoundLabel: "Postcode Found, address populated below",
+            onAddressFound: function (data) {
+                var address = data.reformattedAddress + data.postcode;
+                $("#AddressAddress1New").val(data.reformattedAddress[0]);
+                $("#AddressAddress2New").val(data.reformattedAddress[1]);
+                $("#AddressCityNew").val(data.reformattedAddress[3]);                    
+                $("#AddressZipNew").val(data.postcode);
+            }
+        });
+    });  
+</script>     
