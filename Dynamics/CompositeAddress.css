@@ -59,6 +59,10 @@
     outline-width: 0;
 }
 
+.composite-border-callout{
+    width: 600px !important;
+}
+
 #address1_composite_compositionLinkControl_flyoutLoadingArea {
     overflow: initial;
 }
