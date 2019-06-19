@@ -9,11 +9,12 @@
             addressFoundLabel: "Postcode Found, address populated below",
             onAddressFound: function (data) {
                 var address = data.reformattedAddress + data.postcode;
-                $("#AddressAddress1New").val(data.reformattedAddress[0]);
-                $("#AddressAddress2New").val(data.reformattedAddress[1]);
+                $("#AddressCompanyNew").val(data.reformattedAddress[0]);
+                $("#AddressAddress1New").val(data.reformattedAddress[1]);
+                $("#AddressAddress2New").val(data.reformattedAddress[2]);
                 $("#AddressCityNew").val(data.reformattedAddress[3]);                    
                 $("#AddressZipNew").val(data.postcode);
             }
         });
     });  
-</script>     
+</script>
