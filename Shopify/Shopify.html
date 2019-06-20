@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <!-- CSS -->   
+        <link href="http://www.autoaddress.ie/App_Themes/Common/css/bootstrap.min.css" rel="stylesheet" type="text/css" />        
+        <link href="http://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- jQuery reference -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://api.autoaddress.ie/2.0/control/js/jquery.autoaddress.min.js"></script>
+
+        <script type="text/javascript">
+            jQuery( document ).ready(function( $ ){
+                $("#myControl").html("");
+                $("#myControl").AutoAddress({
+                    key : "<Your Key Here>",
+                    vanityMode : true,
+                    addressProfile: "Shopify Demo",
+                    addressFoundLabel: "Postcode Found, address populated below",
+                    onAddressFound: function (data) {
+                        $("#AddressCompanyNew").val(data.reformattedAddress[0]);
+                        $("#AddressAddress1New").val(data.reformattedAddress[1]);
+                        $("#AddressAddress2New").val(data.reformattedAddress[2]);
+                        $("#AddressCityNew").val(data.reformattedAddress[3]);                    
+                        $("#AddressZipNew").val(data.postcode);
+                    }
+                });
+            });  
+        </script>
+
+        <style>
+            body {
+                margin: 10px 10px 10px 10px
+            }
+
+            label {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            .btn {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+        <h1>Shopify Address Form Demo</h1>
+        
+        <p>
+            More details about how to setup Autoaddress control inside a real shopify form can be found at <br>
+            <a href="https://www.autoaddress.ie/support/developer-centre/integrations/shopify">
+                https://www.autoaddress.ie/support/developer-centre/integrations/shopify
+            </a>
+        </p>
+
+        <form>
+            <div class="row">
+
+                <div class="col-md-5">
+
+                    <!-- Autoaddress control -->
+                    <div id="myControl"></div>
+
+                    <!-- Address form fields -->
+                    <label for="AddressCompanyNew">Company</label>
+                    <input type="text" id="AddressCompanyNew" class="form-control">
+
+                    <label for="AddressAddress1New">Address 1</label>
+                    <input type="text" id="AddressAddress1New" class="form-control">
+
+                    <label for="AddressAddress2New">Address 2</label>
+                    <input type="text" id="AddressAddress2New" class="form-control">
+
+                    <label for="AddressCityNew">City</label>
+                    <input type="text" id="AddressCityNew" value="" class="form-control">
+                
+                    <label for="AddressCountryNew">Country</label>
+                    <select id="AddressCountryNew" class="form-control">
+                        <option value="---" data-provinces="[]">---</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="United Kingdom">United Kingdom</option>            
+                    </select>
+
+                    <label for="AddressZipNew">Postal/Zip Code</label>
+                    <input type="text" id="AddressZipNew" autocapitalize="characters" class="form-control">
+
+                    <label for="AddressPhoneNew">Phone</label>
+                    <input type="tel" id="AddressPhoneNew" class="form-control">
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>  
+            </div>
+        </form>
+    </body>
+</html>
