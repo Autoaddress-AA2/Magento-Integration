@@ -1,0 +1,24 @@
+{
+  "name": "Autoaddress",
+  "2D": true,
+  "3D": false,
+  "platform": "HTML",
+  "version": "2.16",
+  "wabVersion": "2.16",
+  "author": "Autoaddress",
+  "description": "Arc Gis widget for Autoaddress",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "openAtStart ": true,
+		"inPanel":false,
+		"hasLocale": true,
+		"hasStyle":true,
+		"hasConfig":true,
+		"hasUIFile":true,
+		"hasSettingPage":true,
+		"hasSettingUIFile":true,
+		"hasSettingLocale":true,
+		"hasSettingStyle":true
+  }
+}

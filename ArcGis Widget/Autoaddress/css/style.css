@@ -1,0 +1,41 @@
+/* .jimu-widget-mywidget div:first-child{
+    color: red;
+  }
+.spotlight {
+  z-index:-1;
+  position:absolute;
+  left:50%;
+  top:50%;
+  border-radius:50%;
+  opacity:0;
+  box-shadow:
+  inset rgba(0,0,0,0.25) 0px 0px 20px 20px,
+  rgba(0,0,0,0.25) 0px 0px 0px 1000px;
+  transition:all 1000ms;
+  -moz-transition:all 1000ms;
+  -webkit-transition:all 1000ms;
+}
+.spotlight-active {
+  z-index:2;
+  opacity:1;
+} */
+#Autoaddress .autoaddress-control{
+  min-width: 350px;
+  margin: 0;
+}
+
+#Autoaddress .autoaddress-control .autoaddress-text-box{
+  height: 40px;
+  font-size: 14px;
+}
+
+#Autoaddress .autoaddress-control .autoaddress-button{
+  font-family: 'CalciteWebCoreIcons' !important;
+  height: 40px;
+  width: 40px;
+  font-size: 14px;
+}
+
+.autoaddress-control .autoaddress-button:before{
+  content: "\e67b";
+}

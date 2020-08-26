@@ -1,0 +1,55 @@
+<div>
+	
+		<div class="row">
+			<div class="left-cell">
+				<label for="${id}_licenceKey" class="fixedlen indent">${nls.keyLabel}</label>
+			</div>
+			<input id="${id}_licenceKey" type="text" class="wide" data-dojo-attach-point="licenceKeyNode"
+			data-dojo-type="dijit/form/ValidationTextBox" />
+		</div>
+		
+		<div class="row">
+			<div class="left-cell">
+				<label for="${id}_addressProfile" class="fixedlen indent">${nls.profileLabel}</label>
+			</div>
+			<input id="${id}_addressProfile" type="text" class="wide" data-dojo-attach-point="addressProfileNode" 
+			data-dojo-type="dijit/form/ValidationTextBox" />
+		</div>
+
+
+	<div class="address-return-type-title">${nls.addressReturnTypeLabel}</div>
+    <div class="custom-setting-radio-part">
+      <div class="custom-setting-radio"  data-dojo-attach-point="addressReturnTypeRadioBoxDom">
+        <input data-dojo-attach-point="postalRadio" data-dojo-type="dijit/form/RadioButton" name="addressTypeSetting" id="postal-radio" type="radio" class="jimu-radio-btn"/>
+        <label data-dojo-attach-point="postalLabel" for="postal-radio">${nls.postalLabel}<label>
+      </div>
+      <div class="custom-setting-radio">
+        <input data-dojo-attach-point="geographicRadio" data-dojo-type="dijit/form/RadioButton" name="addressTypeSetting" id="geographic-radio" type="radio" class="jimu-radio-btn"/>
+        <label data-dojo-attach-point="geographicLabel" for="geographic-radio">${nls.geographicLabel}</label>
+	  </div>
+	  <div class="custom-setting-radio">
+        <input data-dojo-attach-point="vanityRadio" data-dojo-type="dijit/form/RadioButton" name="addressTypeSetting" id="vanity-radio" type="radio" class="jimu-radio-btn"/>
+        <label data-dojo-attach-point="vanityLabel" for="vanity-radio">${nls.vanityLabel}</label>
+      </div>
+    </div>
+		<!-- <div class="row">
+			<div class="left-cell">
+				<div id="${id}_geographic"
+					data-dojo-attach-point="geographicCheckBox"
+					data-dojo-type="jimu/dijit/CheckBox">
+				</div>
+				<label for="${id}_geographic">${nls.geographicLabel}</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="left-cell">
+				<div id="${id}_vanity"
+					data-dojo-attach-point="vanityCheckBox"
+					data-dojo-type="jimu/dijit/CheckBox">
+				</div>
+				<label for="${id}_vanity">${nls.vanityLabel}</label>
+			</div>
+		</div> -->
+</div>
+
