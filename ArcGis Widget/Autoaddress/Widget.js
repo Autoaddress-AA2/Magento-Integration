@@ -48,6 +48,7 @@ define([
     $) {
     
     var instance = null;
+    var spatialReference = null;
     var locationLayer = new GraphicsLayer({id:"LOCATION"});
     var baseUrl = "https://api.autoaddress.ie/2.0";
     var ecadUrl = "/GetEcadData";
@@ -72,6 +73,7 @@ define([
       startup: function() {
 
        instance = this;
+       spatialReference = this.map.spatialReference;
        instance.map.addLayer(locationLayer);
        console.log('startup');
        lang.hitch(this, $('#Autoaddress').AutoAddress({
@@ -91,9 +93,30 @@ define([
       _getEcadData: function (data) {
         var url = baseUrl + ecadUrl + "?key=" + instance.config.licenceKey + "&ecadid=" + data.addressId;
         $.get(url, function(res) {
-          var long = res.spatialInfo.etrs89.location.longitude;
-          var lat = res.spatialInfo.etrs89.location.latitude;
-          var point = new Point(long, lat, new SpatialReference({ wkid: 4326 }));
+          var long, lat;
+          if(spatialReference.wkid){
+            switch (spatialReference.wkid) {
+              case 2157: // ITM
+                long = res.spatialInfo.itm.location.easting;
+                lat = res.spatialInfo.itm.location.northing;
+                break;
+              case 29902: // ING 
+                long = res.spatialInfo.ing.location.easting;
+                lat = res.spatialInfo.ing.location.northing;
+                break;
+              default: //etrs89
+                long = res.spatialInfo.etrs89.location.longitude;
+                lat = res.spatialInfo.etrs89.location.latitude;
+                spatialReference = new SpatialReference({wkid: 4326 });
+                break;
+            }
+          }else{
+            long = res.spatialInfo.etrs89.location.longitude;
+            lat = res.spatialInfo.etrs89.location.latitude;
+            spatialReference = new SpatialReference({wkid: 4326 });
+          }
+          
+          var point = new Point(long, lat, spatialReference); 
           console.log(map.id);
           instance.map.infoWindow.hide();
           instance.map.graphics.clear();
