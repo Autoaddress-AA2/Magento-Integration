@@ -1,12 +1,8 @@
 <apex:page standardController="Contact" id="addressForm" standardStylesheets="false" doctype="html-5.0" >
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://api.autoaddress.ie/2.0/control/js/jquery.autoaddress.min.js"></script>                  
-
-        <!-- CSS -->   
-        <link href="https://www.autoaddress.ie/App_Themes/Common/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-        <link href="http://api.autoaddress.ie/Autoaddress2Demo/Styles/custom.css" rel="stylesheet" type="text/css" />
-        <link href="https://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet" type="text/css" />
+		<link href="https://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>                       
         <div id="myControl">
@@ -48,7 +44,7 @@
                 </div>
             </div>
             <div class="form-group form-group-sm" >
-                <label class="col-sm-3 control-label" for="postcode" id="postcodeLabel" >Eircode:</label>
+                <label class="col-sm-3 control-label" for="postcode" id="postcodeLabel" >Postcode:</label>
                 <div class="col-sm-9">
                     <input class="form-control" id="postcode" type="text" />
                 </div>
@@ -60,9 +56,9 @@
             $(function(){
                 $("#myControl").html("");
                 $("#myControl").AutoAddress({
-                    key : "<Your Key Here>",
+                    key : "05718847-9b62-448a-a01b-e6a0a85084ed",
                     vanityMode : true,
-                    addressProfile: "SalesforceDemoDefault",
+                    addressProfile: "SalesforceProfile2",
                     addressFoundLabel: "Postcode Found, address populated below",
                     onAddressFound: function (data) {
                         var address = data.reformattedAddress + data.postcode;
@@ -70,7 +66,8 @@
                         $("#address2").val(data.reformattedAddress[1]);
                         $("#address3").val(data.reformattedAddress[2]);
                         $("#address4").val(data.reformattedAddress[3]);
-                        $("#postcode").val(data.reformattedAddress[4]);
+                        $("#address5").val(data.reformattedAddress[4]);
+                        $("#postcode").val(data.postcode);
                     }
                 });
             });  
